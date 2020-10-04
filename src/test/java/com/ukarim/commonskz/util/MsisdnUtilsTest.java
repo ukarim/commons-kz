@@ -64,7 +64,9 @@ class MsisdnUtilsTest {
             " ",
             "   ",
             "87012111966a",
-            "iyerwdfbnvc"
+            "iyerwdfbnvc",
+            "+770121119c6",
+            "770121199c6"
     })
     public void checkFailedConversion(String input) {
         Optional<String> maybe = MsisdnUtils.toMsisdn(input);

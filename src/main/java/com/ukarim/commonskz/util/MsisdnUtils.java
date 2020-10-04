@@ -47,10 +47,6 @@ public final class MsisdnUtils {
             return Optional.empty();
         }
 
-        if (inputLength == 12 && normalized.startsWith("+77")) {
-            return Optional.of(normalized.substring(1));
-        }
-
         if (inputLength == 11 && normalized.startsWith("87")) {
             return Optional.of("7" + normalized.substring(1));
         }
@@ -59,13 +55,22 @@ public final class MsisdnUtils {
     }
 
     private static boolean onlyNumbers(char[] charArr) {
-        boolean returnVal = false;
+        boolean isNum = false;
         for (char c : charArr) {
-            returnVal = c > 47 && c < 58;
+            isNum = c >= '0' && c <= '9';
+            if (!isNum) {
+                break;
+            }
         }
-        return returnVal;
+        return isNum;
     }
 
+    // remove next characters from input:
+    // * leading +
+    // * (
+    // * )
+    // * -
+    // * spaces
     private static String normalizeInput(String input) {
         char[] inputChars = input.toCharArray();
         StringBuilder builder = new StringBuilder();
@@ -79,6 +84,9 @@ public final class MsisdnUtils {
                 default:
                     builder.append(ch);
             }
+        }
+        if (builder.length() > 0 && builder.charAt(0) == '+') {
+            builder.deleteCharAt(0);
         }
         return builder.toString();
     }
