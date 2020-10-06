@@ -2,6 +2,9 @@ package com.ukarim.commonskz.util;
 
 import java.util.Optional;
 
+/**
+ * Validation and formatting of MSISDNs (aka mobile subscribers number) according to E.164
+ */
 public final class MsisdnUtils {
 
     private static final String VALID_MSISDN_REGEX = "^77[0-9]{9}$";

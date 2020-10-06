@@ -16,17 +16,17 @@ class IdNumberUtilsTest {
             "3423523522121" // length != 12
     })
     public void checkInvalidIins(String invalidIin) {
-        Assertions.assertFalse(IdNumberUtils.isIIN(invalidIin));
+        Assertions.assertFalse(IdNumberUtils.isValidIin(invalidIin));
     }
 
     @Test
     public void checkNullIin() {
-        Assertions.assertFalse(IdNumberUtils.isIIN(null));
+        Assertions.assertFalse(IdNumberUtils.isValidIin(null));
     }
 
     @Test
     public void checkNullBin() {
-        Assertions.assertFalse(IdNumberUtils.isBIN(null));
+        Assertions.assertFalse(IdNumberUtils.isValidBin(null));
     }
 
     @ParameterizedTest
@@ -38,6 +38,6 @@ class IdNumberUtilsTest {
             "3423523522121" // length != 12
     })
     public void checkInvalidBins(String invalidBin) {
-        Assertions.assertFalse(IdNumberUtils.isBIN(invalidBin));
+        Assertions.assertFalse(IdNumberUtils.isValidBin(invalidBin));
     }
 }

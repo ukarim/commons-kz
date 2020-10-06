@@ -1,5 +1,8 @@
 package com.ukarim.commonskz.util;
 
+/**
+ * Contains methods for IIN/BIN validating
+ */
 public final class IdNumberUtils {
 
     private static final int ID_NUM_LENGTH = 12;
@@ -21,8 +24,8 @@ public final class IdNumberUtils {
      * @param iin IIN string
      * @return Is valid IIN or not
      */
-    public static boolean isIIN(String iin) {
-        return isIdNum(iin, true);
+    public static boolean isValidIin(String iin) {
+        return isValidIdNum(iin, true);
     }
 
     /**
@@ -30,11 +33,11 @@ public final class IdNumberUtils {
      * @param bin BIN string
      * @return Is valid BIN or not
      */
-    public static boolean isBIN(String bin) {
-        return isIdNum(bin, false);
+    public static boolean isValidBin(String bin) {
+        return isValidIdNum(bin, false);
     }
 
-    private static boolean isIdNum(String input, boolean isCheckForIIN) {
+    private static boolean isValidIdNum(String input, boolean isCheckForIIN) {
         if (input == null || input.trim().isEmpty()) {
             return false;
         }
