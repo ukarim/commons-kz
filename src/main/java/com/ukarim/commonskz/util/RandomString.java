@@ -27,11 +27,11 @@ public final class RandomString {
      */
     public static String generate(char[] alphabet, int len) {
         byte[] randomBytes = new byte[len];
-        int alphabetMaxIdx = alphabet.length - 1;
+        int moduloLimit = alphabet.length;
         SECURE_RANDOM.nextBytes(randomBytes);
         StringBuilder strBuilder = new StringBuilder();
         for (byte randomByte : randomBytes) {
-            int idx = Math.abs(randomByte) % alphabetMaxIdx; // do not overflow
+            int idx = Math.abs(randomByte) % moduloLimit; // do not overflow
             strBuilder.append(alphabet[idx]); // append randomly selected char
         }
         return strBuilder.toString();
