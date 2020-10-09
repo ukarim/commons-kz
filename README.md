@@ -1,6 +1,8 @@
 # commons-kz
 
-Utility classes specific to KZ area. Actually it's a code I've tired to copy-paste from project to projects.
+![Run tests](https://github.com/ukarim/commons-kz/workflows/run-tests/badge.svg)
+
+🇰🇿 Utility classes specific to KZ area.
 
 ### Build
 
