@@ -40,4 +40,15 @@ class IdNumberUtilsTest {
     public void checkInvalidBins(String invalidBin) {
         Assertions.assertFalse(IdNumberUtils.isValidBin(invalidBin));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "940140000385", // halyk bank
+            "971240001315", // kaspi bank
+            "970440003326", // kolesa group
+            "000140002217", // kazpost
+    })
+    public void checkValidBins(String validBin) {
+        Assertions.assertTrue(IdNumberUtils.isValidBin(validBin));
+    }
 }
